@@ -1,7 +1,7 @@
 {
   "name": "animatable",
   "version": "0.0.0",
-  "description": "Small description for animatable goes here",
+  "description": "Learn quickly if a CSS property can be animated",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -12,11 +12,11 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "",
+  "repository": "https://github.com/tinystride/animatable",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Neil Renicker",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
