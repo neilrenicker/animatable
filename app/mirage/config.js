@@ -1,9 +1,7 @@
 export default function() {
   this.namespace = 'api';
-  this.get('/properties', function(db, request) {
-    debugger
-    return db.properties;
-  });
+
+  this.get('/properties');
 
   /*
     Route shorthand cheatsheet

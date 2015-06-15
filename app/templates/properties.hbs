@@ -1,0 +1,15 @@
+<h1>Properties</h1>
+
+<ul>
+  {{#each model as |property|}}
+    <li>
+      <a href="{{property.sourceUrl}}" target="_blank"
+        title="{{property.name}} on the Mozilla Developer Network">
+        <h4>{{property.name}}</h4>
+      </a>
+      <p>{{property.content}}</p>
+    </li>
+  {{/each}}
+</ul>
+
+{{outlet}}
