@@ -10,7 +10,8 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember test",
+    "divshot:dev": "rm -rf ./dist && EMBER_ENV=development ember build && divshot push production"
   },
   "repository": "https://github.com/tinystride/animatable",
   "engines": {
