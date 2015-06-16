@@ -1,15 +1,23 @@
-<h1>Properties</h1>
+<h1>Search for a CSS Property</h1>
 
-<ul>
-  {{#each model as |property|}}
-    <li>
-      <a href="{{property.sourceUrl}}" target="_blank"
-        title="{{property.name}} on the Mozilla Developer Network">
-        <h4>{{property.name}}</h4>
-      </a>
-      <p>{{property.content}}</p>
-    </li>
-  {{/each}}
-</ul>
+{{ember-selectize
+  content=model
+  optionValuePath="content.id"
+  optionLabelPath="content.name"
+  selection=selectedProperty
+  placeholder="Select a property"
+  filter=userQuery
+  loading=model.isPending }}
+
+<p>you selected <b>{{selectedProperty.name}}</b></p>
+<p>your query was '{{userQuery}}'</p>
+
+{{#if selectedProperty}}
+  <a href="{{selectedProperty.sourceUrl}}" target="_blank"
+    title="{{selectedProperty.name}} on the Mozilla Developer Network">
+    <h4>{{selectedProperty.name}}</h4>
+  </a>
+  <p>{{selectedProperty.content}}</p>
+{{/if}}
 
 {{outlet}}
