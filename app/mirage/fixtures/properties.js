@@ -27,4 +27,4 @@ export default [
     "description" : "The perspective CSS property determines the distance between the z=0 plane and the user in order to give to the 3D-positioned element some perspective. Each 3D element with z>0 becomes larger; each 3D-element with z<0 becomes smaller. The strength of the effect is determined by the value of this property.",
     "content" : "yes, as a length"
   }
-]
+];
