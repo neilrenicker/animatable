@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container px2">
   <div class="clearfix">
     <h1>Search for a CSS Property</h1>
 
@@ -10,9 +10,6 @@
       placeholder="Select a property"
       filter=userQuery
       loading=model.isPending }}
-
-    <p>you selected <b>{{selectedProperty.name}}</b></p>
-    <p>your query was '{{userQuery}}'</p>
 
     {{#if selectedProperty}}
       <a href="{{selectedProperty.sourceUrl}}" target="_blank"
