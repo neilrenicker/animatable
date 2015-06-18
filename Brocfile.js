@@ -1,14 +1,14 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var autoprefixer = require('autoprefixer-core');
- 
+
 var app = new EmberApp({
   postcssOptions: {
     plugins: [
       {
-        module: autoprefixer, 
+        module: autoprefixer,
         options: {
-          browsers: ['last 2 versions'] 
+          browsers: ['last 2 versions']
         }
       }
     ]

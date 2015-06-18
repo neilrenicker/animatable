@@ -2,23 +2,7 @@
   <div class="clearfix">
     <h1>Search for a CSS Property</h1>
 
-    {{ember-selectize
-      content=model
-      optionValuePath="content.id"
-      optionLabelPath="content.name"
-      selection=selectedProperty
-      placeholder="Select a property"
-      filter=userQuery
-      loading=model.isPending }}
-
-    {{#if selectedProperty}}
-      <a href="{{selectedProperty.sourceUrl}}" target="_blank"
-        title="{{selectedProperty.name}} on the Mozilla Developer Network">
-        <h4>{{selectedProperty.name}}</h4>
-      </a>
-      <p>{{selectedProperty.content}}</p>
-    {{/if}}
-
-    {{outlet}}
+    {{autocomplete-search dataSet=model
+      placeholder='example: color, font-size'}}
   </div>
 </div>
