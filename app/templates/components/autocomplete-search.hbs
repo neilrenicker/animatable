@@ -1,18 +1,18 @@
 <label class="hide" for="search">Search for a CSS property</label>
-{{input class='field-light full-width rounded' value=query
+{{input class='relative field-light full-width rounded z2' value=query
   placeholder=placeholder id='search' type='text'}}
 <button class="hide button">Search</button>
 
-<div class="absolute bg-white full-width px2 py1 rounded"
+<div class="absolute bg-white full-width rounded"
   style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);">
   {{#if searchResults}}
     {{#each searchResults}}
-      <div>
+      <div class="px2 py1 pointer typeahead transition-bgc">
         {{this.name}}
       </div>
     {{/each}}
   {{else}}
-    <div>
+    <div class="px2 py1">
       No results for '{{query}}'
     </div>
   {{/if}}

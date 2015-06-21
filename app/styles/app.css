@@ -1,0 +1,15 @@
+.pointer {
+  cursor: pointer;
+}
+
+.transition-bgc {
+  transition: background-color 150ms ease;
+}
+
+.typeahead:first-of-type {
+  background-color: #F0F0F0;
+}
+
+.typeahead:hover {
+  background-color: #E6E6E6;
+}
