@@ -1,22 +1,23 @@
-<label class="hide" for="search">Search for a CSS property</label>
-{{input class='relative field-light full-width rounded z2' value=query
-  placeholder=placeholder id='search' type='text'
-  focus-in='inputFocused' focus-out='inputUnfocused'}}
-<button class="hide button">Search</button>
-
-{{#if inputHasFocus}}
-  <div class="absolute bg-white full-width rounded"
-    style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);">
-      {{#if searchResults}}
-        {{#each searchResults}}
-          <div class="px2 py1 pointer typeahead transition-bgc">
-            {{this.name}}
+<form {{action 'formSubmitted' on='submit'}}>
+  <label class="hide" for="search">Search for a CSS property</label>
+  {{input class='relative field-light full-width rounded z2' value=query
+    id='search' type='text' focus-in='inputFocused' focus-out='inputUnfocused'
+    key-press='inputKeypress' autocomplete='off'}}
+  {{input type='submit' value='search' class='hide'}}
+  {{#if inputHasFocus}}
+    <div class="absolute bg-white full-width rounded"
+      style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);">
+        {{#if searchResults}}
+          {{#each searchResults}}
+            <div class="px2 py1 pointer typeahead transition-bgc">
+              {{this.name}}
+            </div>
+          {{/each}}
+        {{else}}
+          <div class="px2 py1">
+            No results for '{{query}}'
           </div>
-        {{/each}}
-      {{else}}
-        <div class="px2 py1">
-          No results for '{{query}}'
-        </div>
-      {{/if}}
-  </div>
-{{/if}}
+        {{/if}}
+    </div>
+  {{/if}}
+</form>

@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'form',
   classNames: ['relative'],
   query: '',
   inputHasFocus: false,
+  selectedResult: null,
 
   searchResults: Ember.computed('query', 'dataSet', function() {
     var query = this.get('query');
@@ -15,12 +15,23 @@ export default Ember.Component.extend({
     });
   }),
 
+  _setSelectedResult: function() {
+    if (this.get('searchResults')) {
+      this.set('selectedResult', this.get('searchResults').objectAt(0))
+    }
+  },
+
   actions: {
     inputFocused: function() {
       this.set('inputHasFocus', true)
     },
 
     inputUnfocused: function() {
+      this.set('inputHasFocus', false)
+    },
+
+    formSubmitted: function() {
+      this._setSelectedResult()
       this.set('inputHasFocus', false)
     }
   }

@@ -1,10 +1,18 @@
-<div class="bg-silver clearfix">
-  <div class="container">
-    <div class="px2 mt3 mb2">
-      <p class="h4 caps bold">Search for a CSS Property</p>
-
-      {{autocomplete-search dataSet=model
-        placeholder='example: color, font-size'}}
+<section>
+  <header class="bg-silver clearfix">
+    <div class="container">
+      <div class="px2 mt3 mb2">
+        <p class="h4 caps bold">Search for a CSS Property</p>
+        {{autocomplete-search dataSet=model selectedResult=selectedResult}}
+      </div>
     </div>
-  </div>
-</div>
+  </header>
+  <section class="clearfix">
+    <div class="container">
+      <div class="px2 mt2">
+        <b class="bold block">{{selectedResult.name}}</b>
+        {{selectedResult.content}}
+      </div>
+    </div>
+  </section>
+</section>
