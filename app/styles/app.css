@@ -8,24 +8,28 @@ input[type=text].field-large {
   padding: 1rem;
 }
 
-.pointer {
-  cursor: pointer;
-}
+.pointer { cursor: pointer; }
 
-.l1 {
-  left: .5rem;
-}
+.l1 { left: .5rem; }
 
-.r1 {
-  right: .5rem;
-}
+.r1 { right: .5rem; }
+
+.m5  { margin: 6rem }
+.mt5 { margin-top: 6rem }
+.mr5 { margin-right: 6rem }
+.mb5 { margin-bottom: 6rem }
+.ml5 { margin-left: 6rem }
+
+.bg-yellow { background-color: #FFDD8F; }
+.bg-teal { background-color: #A5D7CC; }
 
 .transition-bgc {
-  transition: background-color 150ms ease;
+  transition: background-color 200ms ease;
 }
 
 .typeahead:first-of-type {
   background-color: #F0F0F0;
+  font-weight: bold;
 }
 
 .typeahead:hover {

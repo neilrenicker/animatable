@@ -1,7 +1,9 @@
 <section>
-  <header class="bg-silver clearfix">
+  <header class="clearfix bg-silver transition-bgc
+    {{if isPositiveResponse 'bg-teal'}}
+    {{if isNegativeResponse 'bg-yellow'}}">
     <div class="container">
-      <div class="px2 mt4 mb4">
+      <div class="px2 mt5 mb5">
         <p class="h4 caps bold">Search for a CSS Property</p>
         {{autocomplete-search dataSet=model selectedResult=selectedResult}}
       </div>
@@ -9,8 +11,8 @@
   </header>
   <section class="clearfix">
     <div class="container">
-      <div class="px2 mt2">
-        <b class="bold block">{{selectedResult.name}}</b>
+      <div class="px2 mt3">
+        <b class="bold block h2">{{selectedResult.name}}</b>
         {{selectedResult.content}}
       </div>
     </div>
