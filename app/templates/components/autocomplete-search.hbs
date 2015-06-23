@@ -1,11 +1,11 @@
 <form {{action 'formSubmitted' on='submit'}}>
   <label class="hide" for="search">Search for a CSS property</label>
-  {{input class='relative field-light field-large full-width rounded z2 monospace'
-    value=query id='search' type='text' focus-in='inputFocused'
+  {{input class='relative field-light field-large full-width rounded monospace
+    bold full-width' value=query id='search' type='text' focus-in='inputFocused'
     focus-out='inputUnfocused' autocomplete='off' key-down='inputKeydown'}}
   {{input type='submit' value='search' class='hide'}}
   {{#if inputHasFocus}}
-    <div class="absolute bg-white full-width rounded overflow-scroll"
+    <div class="absolute bg-white rounded overflow-scroll mt1 l1 r1"
       style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); max-height: 15rem;">
         {{#if searchResults}}
           {{#each searchResults}}

@@ -12,6 +12,14 @@ input[type=text].field-large {
   cursor: pointer;
 }
 
+.l1 {
+  left: .5rem;
+}
+
+.r1 {
+  right: .5rem;
+}
+
 .transition-bgc {
   transition: background-color 150ms ease;
 }
