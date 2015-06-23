@@ -5,8 +5,8 @@
     autocomplete='off' key-down='inputKeydown'}}
   {{input type='submit' value='search' class='hide'}}
   {{#if inputHasFocus}}
-    <div class="absolute bg-white full-width rounded"
-      style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);">
+    <div class="absolute bg-white full-width rounded overflow-scroll"
+      style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); max-height: 15rem;">
         {{#if searchResults}}
           {{#each searchResults}}
             <div class="px2 py1 pointer typeahead transition-bgc">
