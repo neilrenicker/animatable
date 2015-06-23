@@ -2,7 +2,7 @@
   <label class="hide" for="search">Search for a CSS property</label>
   {{input class='relative field-light full-width rounded z2' value=query
     id='search' type='text' focus-in='inputFocused' focus-out='inputUnfocused'
-    key-press='inputKeypress' autocomplete='off'}}
+    autocomplete='off' key-down='inputKeydown'}}
   {{input type='submit' value='search' class='hide'}}
   {{#if inputHasFocus}}
     <div class="absolute bg-white full-width rounded"

@@ -26,6 +26,14 @@ export default Ember.Component.extend({
       this.set('inputHasFocus', true)
     },
 
+   inputKeydown: function() {
+      if (this.get('inputHasFocus')) {
+        return
+      }
+
+      this.set('inputHasFocus', true)
+    },
+
     inputUnfocused: function() {
       this.set('inputHasFocus', false)
     },
