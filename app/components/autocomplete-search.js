@@ -17,7 +17,7 @@ export default Ember.Component.extend({
 
   _setSelectedResult: function() {
     if (this.get('searchResults')) {
-      this.set('selectedResult', this.get('searchResults').objectAt(0))
+      this.set('selectedResult', this.get('searchResults.firstObject'))
     }
   },
 
