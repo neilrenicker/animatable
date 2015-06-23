@@ -1,3 +1,13 @@
+.monospace {
+  font-family: 'Source Code Pro', Consolas, monospace;
+}
+
+input[type=text].field-large {
+  height: 3.5rem;
+  font-size: 1.7rem;
+  padding: 1rem;
+}
+
 .pointer {
   cursor: pointer;
 }
