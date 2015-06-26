@@ -49,7 +49,6 @@ export default [
     "description" : "The columns CSS property is a shorthand property allowing to set both the column-width and the column-count properties at the same time."
   },
   {
-    "source" : "/en-US/docs/CSS/length#Interpolation",
     "name" : "column-width",
     "source" : "/en-US/docs/Web/CSS/column-width",
     "sourceUrl" : "https://developer.mozilla.org/en-US/docs/Web/CSS/column-width",
