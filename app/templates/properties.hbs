@@ -5,15 +5,15 @@
     <div class="container">
       <div class="px2 mt5 mb5">
         <p class="h4 caps bold">Search for a CSS Property</p>
-        {{autocomplete-search dataSet=model selectedResult=selectedResult}}
+        {{autocomplete-search data=model chosenResult=chosenResult}}
       </div>
     </div>
   </header>
   <section class="clearfix">
     <div class="container">
       <div class="px2 mt3">
-        <b class="bold block h2">{{selectedResult.name}}</b>
-        {{selectedResult.content}}
+        <b class="bold block h2">{{chosenResult.name}}</b>
+        {{chosenResult.content}}
       </div>
     </div>
   </section>

@@ -1,46 +1,94 @@
 import Ember from 'ember';
+import HighlightResultsMixin from 'animatable/mixins/highlight-results';
+import OutsideClickListener from 'animatable/mixins/outside-click-listener';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(HighlightResultsMixin,
+  OutsideClickListener, {
   classNames: ['relative'],
   query: '',
-  inputHasFocus: false,
-  selectedResult: null,
+  shouldDisplayResults: false,
 
-  searchResults: Ember.computed('query', 'dataSet', function() {
-    var query = this.get('query');
+  results: Ember.computed('query', 'data', function() {
+    let query = this.get('query');
 
-    var regex = new RegExp(query, 'i');
-    return this.get('dataSet').filter(function(result) {
+    if (!query) {
+      return this.get('data');
+    }
+
+    let regex = new RegExp(query, 'i');
+    return this.get('data').filter(function(result) {
       return result.get('name').match(regex);
     });
   }),
 
-  _setSelectedResult: function() {
-    if (this.get('searchResults')) {
-      this.set('selectedResult', this.get('searchResults.firstObject'))
+  bindKeyEvents: function() {
+    Ember.$(document).on('keydown', (e) => {
+      Ember.run.next( () => {
+        switch (e.keyCode) {
+          case 9: // tab key
+          case 13: // enter key
+            return;
+          case 27: // escape key
+            this.set('shouldDisplayResults', false);
+            break;
+          case 38: // up arrow key
+            this.highlightPreviousResult();
+            break;
+          case 40: // down arrow key
+            this.highlightNextResult();
+            break;
+          default:
+            this.enterSearchMode();
+        }
+      });
+    });
+  },
+
+  unBindKeyEvents: function() {
+    Ember.$(document).off('keydown');
+  },
+
+  outsideClick: function() {
+    if (!this.get('shouldDisplayResults')) {
+      // Don't do anything with the outside click until
+      // the results box is active
+      return;
     }
+
+    this.set('shouldDisplayResults', false);
+  },
+
+  enterSearchMode: function() {
+    this.highlightFirstResult();
+    this.set('shouldDisplayResults', true);
+  },
+
+  setChosenResult: function(result) {
+    this.set('chosenResult', result);
+    this.set('query', this.get('chosenResult.name'));
+    this.set('shouldDisplayResults', false);
   },
 
   actions: {
     inputFocused: function() {
-      this.set('inputHasFocus', true)
-    },
-
-   inputKeydown: function() {
-      if (this.get('inputHasFocus')) {
-        return
-      }
-
-      this.set('inputHasFocus', true)
+      this.enterSearchMode();
+      this.bindKeyEvents();
     },
 
     inputUnfocused: function() {
-      this.set('inputHasFocus', false)
+      this.unBindKeyEvents();
     },
 
     formSubmitted: function() {
-      this._setSelectedResult()
-      this.set('inputHasFocus', false)
+      this.setChosenResult(this.get('highlightedResult'));
+    },
+
+    resultClicked: function(result) {
+      this.setChosenResult(result);
+    },
+
+    willDestroyElement: function() {
+      this.unBindKeyEvents();
     }
   }
 });

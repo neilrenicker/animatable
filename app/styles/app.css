@@ -27,9 +27,8 @@ input[type=text].field-large {
   transition: background-color 200ms ease;
 }
 
-.typeahead:first-of-type {
+.typeahead.highlighted {
   background-color: #F0F0F0;
-  font-weight: bold;
 }
 
 .typeahead:hover {
