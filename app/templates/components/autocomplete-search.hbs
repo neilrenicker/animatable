@@ -2,15 +2,17 @@
   <label class="hide" for="search">Search for a CSS property</label>
   {{input class='relative field-light field-large full-width rounded monospace
     bold full-width' value=query id='search' type='text' focus-in='inputFocused'
-    focus-out='inputUnfocused' autocomplete='off' key-down='inputKeydown'}}
+    focus-out='inputUnfocused' autocomplete='off'}}
   {{input type='submit' value='search' class='hide'}}
-  {{#if inputHasFocus}}
+  {{#if shouldDisplayResults}}
     <div class="absolute bg-white rounded overflow-scroll mt1 l1 r1"
       style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); max-height: 15rem;">
-        {{#if searchResults}}
-          {{#each searchResults}}
-            <div class="typeahead px2 py1 pointer h3 transition-bgc">
-              {{this.name}}
+        {{#if results}}
+          {{#each results as |result|}}
+            <div class="typeahead px2 py1 pointer h3 transition-bgc
+              {{if result.isHighlighted 'highlighted'}}"
+              {{action 'resultClicked' result}}>
+              {{result.name}}
             </div>
           {{/each}}
         {{else}}
