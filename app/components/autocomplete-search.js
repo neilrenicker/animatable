@@ -80,7 +80,13 @@ export default Ember.Component.extend(HighlightResultsMixin,
     },
 
     formSubmitted: function() {
-      this.setChosenResult(this.get('highlightedResult'));
+      let highlightedResult = this.get('highlightedResult');
+
+      if (!highlightedResult) {
+        return;
+      }
+
+      this.setChosenResult(highlightedResult);
     },
 
     resultClicked: function(result) {
