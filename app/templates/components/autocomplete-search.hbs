@@ -5,11 +5,11 @@
     focus-out='inputUnfocused' autocomplete='off'}}
   {{input type='submit' value='search' class='hide'}}
   {{#if shouldDisplayResults}}
-    <div class="absolute bg-white rounded overflow-scroll mt1 l1 r1"
+    <div class="absolute bg-white rounded overflow-scroll mt1 l1 r1 h3"
       style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15); max-height: 15rem;">
         {{#if results}}
           {{#each results as |result|}}
-            <div class="typeahead px2 py1 pointer h3 transition-bgc
+            <div class="typeahead px2 py1 pointer transition-bgc
               {{if result.isHighlighted 'highlighted'}}"
               {{action 'resultClicked' result}}>
               {{result.name}}
