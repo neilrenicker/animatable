@@ -12,8 +12,16 @@
   <section class="clearfix">
     <div class="container">
       <div class="px3 mt3">
-        <b class="bold block h2">{{chosenResult.name}}</b>
-        {{chosenResult.content}}
+        {{#if chosenResult}}
+          <p class="block h2">
+            {{#if isPositiveResponse}}
+              yes, <span class="bold">{{chosenResult.name}}</span> can
+            {{else}}
+              no, <span class="bold">{{chosenResult.name}}</span> cannot
+            {{/if}}
+            be animated with a CSS transition
+          </p>
+        {{/if}}
       </div>
     </div>
   </section>
