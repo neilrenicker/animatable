@@ -1,3 +1,7 @@
+body {
+  color: rgba(0,0,0,.7);
+}
+
 .monospace {
   font-family: 'Source Code Pro', Consolas, monospace;
 }
@@ -6,6 +10,8 @@ input[type=text].field-large {
   height: 3.5rem;
   font-size: 1.7rem;
   padding: 1rem;
+  color: rgba(0,0,0,.8);
+  background-color: rgba(255,255,255,.7);
 }
 
 .pointer { cursor: pointer; }
@@ -20,11 +26,14 @@ input[type=text].field-large {
 .mb5 { margin-bottom: 6rem }
 .ml5 { margin-left: 6rem }
 
-.bg-yellow { background-color: #FFDD8F; }
-.bg-teal { background-color: #A5D7CC; }
+.bg-yellow-dk { background-color: #E9CA7D; }
+.bg-yellow { background-color: #FFDE8A; }
+.bg-teal-dk { background-color: #95C3B9; }
+.bg-teal { background-color: #A3D7CC; }
+.bg-light-silver { background-color: #FAFAFA; }
 
 .transition-bgc {
-  transition: background-color 200ms ease;
+  transition: background-color 150ms ease;
 }
 
 .typeahead.highlighted {
