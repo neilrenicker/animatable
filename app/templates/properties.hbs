@@ -3,7 +3,7 @@
     {{if isPositiveResponse 'bg-teal'}}
     {{if isNegativeResponse 'bg-yellow'}}">
     <div class="container">
-      <div class="px2 mt5 mb5">
+      <div class="px3 mt5 mb5">
         <p class="h4 caps bold">Search for a CSS Property</p>
         {{autocomplete-search data=model chosenResult=chosenResult}}
       </div>
@@ -11,7 +11,7 @@
   </header>
   <section class="clearfix">
     <div class="container">
-      <div class="px2 mt3">
+      <div class="px3 mt3">
         <b class="bold block h2">{{chosenResult.name}}</b>
         {{chosenResult.content}}
       </div>
