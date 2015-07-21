@@ -5,14 +5,14 @@ export default Ember.Mixin.create({
 
   highlightedResultWillChange: function() {
     let highlightedResult = this.get('highlightedResult');
-    if (!highlightedResult) { return; };
+    if (!highlightedResult) { return; }
 
     highlightedResult.set('isHighlighted', false);
   }.observesBefore('highlightedResult'),
 
   highlightedResultChanged: function() {
     let highlightedResult = this.get('highlightedResult');
-    if (!highlightedResult) { return; };
+    if (!highlightedResult) { return; }
 
     highlightedResult.set('isHighlighted', true);
   }.observes('highlightedResult'),

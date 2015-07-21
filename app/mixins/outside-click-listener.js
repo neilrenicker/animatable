@@ -24,7 +24,7 @@ export default Ember.Mixin.create({
         Ember.$(
           _this.get('outsideElementSelector')
         ).on('click', _this.clickHandler);
-      }
+      };
     })(this));
   }.on('didInsertElement'),
 
