@@ -1,4 +1,5 @@
 /* jshint node: true */
+var apiKeys = require('../api-keys');
 
 module.exports = function(environment) {
   var ENV = {
@@ -10,41 +11,34 @@ module.exports = function(environment) {
       global: true,
       enabled: environment === 'development'
     },
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
+    'ember-cli-mirage': {
+      enabled: environment !== 'production'
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      IMPORT_IO_HOST: 'https://api.import.io/store/connector/_magic',
+      MOZILLA_PROPERTIES_URL:
+        'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties?raw&macros',
+      IMPORT_IO_USER_ID: apiKeys.importIoUserId,
+      IMPORT_IO_API_KEY: apiKeys.importIoApiKey
     }
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.NAMESPACE = 'api';
   }
 
   if (environment === 'test') {
-    // Testem prefers this...
+    // Testem prefers this
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
-    // keep test console output quieter
+    // Keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-
   }
 
   return ENV;
