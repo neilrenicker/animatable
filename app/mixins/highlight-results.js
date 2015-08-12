@@ -17,7 +17,7 @@ export default Ember.Mixin.create({
     highlightedResult.set('isHighlighted', true);
   }.observes('highlightedResult'),
 
-  // Internal Functions
+  // Public Functions
 
   highlightFirstResult: function() {
     this.set('highlightedResult', this.get('results').objectAt(0));
