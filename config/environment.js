@@ -25,7 +25,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = false;
     ENV.APP.NAMESPACE = 'api';
   }
 
