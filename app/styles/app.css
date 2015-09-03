@@ -43,3 +43,9 @@ input[type=text].field-large {
 .typeahead:hover {
   background-color: #E6E6E6;
 }
+
+.bg-teal .conditional-color-link,
+.bg-yellow .conditional-color-link {
+  color: rgba(0,0,0,.8);
+  font-weight: bold;
+}
