@@ -69,6 +69,14 @@ export default Ember.Component.extend(HighlightResultsMixin,
     this.set('shouldDisplayResults', false);
   },
 
+  didInsertElement: function() {
+    this.set('chosenResult', null);
+  },
+
+  willDestroyElement: function() {
+    this.unBindKeyEvents();
+  },
+
   actions: {
     inputFocused: function() {
       this.enterSearchMode();
@@ -91,10 +99,6 @@ export default Ember.Component.extend(HighlightResultsMixin,
 
     resultClicked: function(result) {
       this.setChosenResult(result);
-    },
-
-    willDestroyElement: function() {
-      this.unBindKeyEvents();
     }
   }
 });
