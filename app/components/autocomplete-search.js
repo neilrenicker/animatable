@@ -21,6 +21,14 @@ export default Ember.Component.extend(HighlightResultsMixin,
     });
   }),
 
+  didInsertElement() {
+    this.set('chosenResult', null);
+  },
+
+  willDestroyElement() {
+    this.unBindKeyEvents();
+  },
+
   bindKeyEvents: function() {
     Ember.$(document).on('keydown', (e) => {
       Ember.run.next( () => {
@@ -91,10 +99,6 @@ export default Ember.Component.extend(HighlightResultsMixin,
 
     resultClicked: function(result) {
       this.setChosenResult(result);
-    },
-
-    willDestroyElement: function() {
-      this.unBindKeyEvents();
     }
   }
 });
