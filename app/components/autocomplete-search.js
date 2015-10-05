@@ -21,6 +21,14 @@ export default Ember.Component.extend(HighlightResultsMixin,
     });
   }),
 
+  didInsertElement() {
+    this.set('chosenResult', null);
+  },
+
+  willDestroyElement() {
+    this.unBindKeyEvents();
+  },
+
   bindKeyEvents: function() {
     Ember.$(document).on('keydown', (e) => {
       Ember.run.next( () => {
@@ -67,14 +75,6 @@ export default Ember.Component.extend(HighlightResultsMixin,
     this.set('chosenResult', result);
     this.set('query', this.get('chosenResult.name'));
     this.set('shouldDisplayResults', false);
-  },
-
-  didInsertElement: function() {
-    this.set('chosenResult', null);
-  },
-
-  willDestroyElement: function() {
-    this.unBindKeyEvents();
   },
 
   actions: {
